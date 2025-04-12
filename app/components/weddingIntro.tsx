@@ -32,7 +32,7 @@ export default function WeddingIntro() {
   }, []);
 
   return (
-    <section className="w-screen h-screen relative overflow-hidden">
+    <section className="w-screen min-h-screen relative overflow-hidden">
       {/* Gambar Background (Full Screen, object-cover) */}
       <motion.div
         initial={{ scale: 1.1 }}
@@ -49,9 +49,6 @@ export default function WeddingIntro() {
         />
         {/* Overlay gelap tipis */}
         <div className="absolute inset-0" />
-
-        {/* Light effect di kanan */}
-        <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-white/30 to-transparent blur-2xl" />
       </motion.div>
 
       {/* Konten Utama */}

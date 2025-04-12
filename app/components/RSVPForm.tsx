@@ -23,7 +23,7 @@ export default function RSVPPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           nama,
-          attending: attending === 'yes', // ✅ kirim sebagai boolean
+          attending: attending === 'yes',
         }),
       });
 
@@ -44,7 +44,7 @@ export default function RSVPPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[url('/assets/children.png')] bg-cover bg-center px-4 sm:px-8 py-16">
       <motion.div
-        className="bg-white bg-opacity-90 rounded-xl shadow-xl p-6 w-full max-w-md space-y-6 text-center"
+        className="bg-white bg-opacity-90 rounded-xl shadow-xl p-6 w-full max-w-md space-y-6 text-center backdrop-blur-md"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
@@ -55,12 +55,12 @@ export default function RSVPPage() {
         <input
           type="text"
           placeholder="Nama lengkap"
-          className="w-full border border-gray-300 rounded-md p-2 text-sm"
+          className="w-full border border-gray-300 rounded-md p-2 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500"
           value={nama}
           onChange={(e) => setNama(e.target.value)}
         />
 
-        <div className="flex flex-col sm:flex-row justify-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-center gap-4 text-left sm:text-center">
           <label className="flex items-center gap-2 text-sm text-gray-700">
             <input
               type="radio"
@@ -68,6 +68,7 @@ export default function RSVPPage() {
               value="yes"
               checked={attending === 'yes'}
               onChange={() => setAttending('yes')}
+              className="accent-yellow-600"
             />
             Saya akan hadir
           </label>
@@ -78,6 +79,7 @@ export default function RSVPPage() {
               value="no"
               checked={attending === 'no'}
               onChange={() => setAttending('no')}
+              className="accent-yellow-600"
             />
             Saya tidak bisa hadir
           </label>

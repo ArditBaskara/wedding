@@ -104,7 +104,7 @@ export default function GiftSection() {
               variant="secondary"
               className=""
               onClick={() =>
-                window.open('https://wa.me/6281234567890', '_blank')
+                window.open('https://wa.me/6283821172388', '_blank')
               }
               icon={<Send size={16} />}
             >
@@ -148,7 +148,7 @@ export default function GiftSection() {
               variant="secondary"
               className=""
               onClick={() =>
-                window.open('https://wa.me/6281234567890', '_blank')
+                window.open('https://wa.me/6283821172388', '_blank')
               }
               icon={<Send size={16} />}
             >
