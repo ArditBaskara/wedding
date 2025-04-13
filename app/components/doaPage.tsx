@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { Textarea } from './ui/textarea';
 import { Button } from './ui/Button';
-import { CardStack } from './ui/card-stack';
 import { toast } from 'react-hot-toast';
 
 type Message = {
