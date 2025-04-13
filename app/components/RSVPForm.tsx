@@ -42,11 +42,15 @@ export default function RSVPPage() {
   };
 
   return (
-    <section className="w-full h-[100vh] relative overflow-hidden bg-cover bg-center bg-no-repeat bg-[url('/assets/children.png')]">
-      {/* Overlay optional */}
-      <div className="absolute inset-0 z-0" />
+    <section className="relative w-screen h-screen overflow-hidden">
+      {/* Background image full screen */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/assets/children.png')" }}
+      />
 
-      <div className="relative z-10 flex items-center justify-center w-full h-full px-4 sm:px-8 py-12">
+      {/* RSVP form */}
+      <div className="relative z-10 flex items-center justify-center w-full h-full px-4 py-12">
         <motion.div
           className="bg-white bg-opacity-90 rounded-xl shadow-xl p-6 w-full max-w-md space-y-6 text-center backdrop-blur-md"
           initial={{ opacity: 0, y: 30 }}

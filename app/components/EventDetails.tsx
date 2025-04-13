@@ -6,32 +6,22 @@ import Image from 'next/image';
 export default function EventDetails() {
   return (
     <section
-      className="w-full h-screen relative bg-cover bg-center bg-no-repeat flex items-center justify-center px-2"
+      className="w-full min-h-screen relative bg-cover bg-center bg-no-repeat flex items-center justify-center px-4 py-16"
       style={{
-        backgroundImage: "url('/assets/children.png')", // Ganti sesuai path background-mu
+        backgroundImage: "url('/assets/children.png')",
       }}
     >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="p-4 md:p-6 text-center max-w-xl mt-20"
+        className="text-center max-w-2xl w-full"
       >
-        <p className="text-sm md:text-base text-gray-800 mb-4 leading-relaxed">
+        <p className="text-sm md:text-base text-gray-800 mb-6 leading-relaxed">
           Dengan segala kerendahan hati kami berharap kehadiran
           Bapak/Ibu/Saudara/i dalam acara pernikahan anak kami yang akan
           diselenggarakan pada:
         </p>
-
-        {/* <p className="font-medium text-yellow-900 text-sm md:text-base mb-1">
-          Akad Nikah dan Syukuran
-        </p>
-        <p className="text-sm text-gray-800 mb-1">Sabtu, 26 April 2025</p>
-        <p className="text-sm text-gray-800 mb-4">Pukul : 08:00 - 12:00 WIB</p> */}
-        {/* 
-        <p className="text-xs md:text-sm text-gray-700 mb-2 leading-tight">
-          Yang akan dilaksanakan pada:
-        </p> */}
 
         {/* Tanggal */}
         <div className="flex items-center justify-center gap-3 text-gray-800 font-serif mb-4">
@@ -41,7 +31,7 @@ export default function EventDetails() {
         </div>
 
         {/* Jadwal */}
-        <div className="flex justify-around text-xs md:text-sm font-medium text-gray-700 gap-4 mb-4">
+        <div className="flex justify-center text-xs md:text-sm font-medium text-gray-700 gap-6 mb-8">
           <div className="leading-snug">
             <p className="font-bold text-yellow-900">Akad Nikah</p>
             <p className="font-serif font-normal">08.00 WIB</p>
@@ -51,28 +41,27 @@ export default function EventDetails() {
             <p className="font-serif font-normal">09.30 WIB</p>
           </div>
         </div>
-        <div className="flex flex-col md:flex-row justify-center items-start gap-6 mb-6">
+
+        {/* Lokasi & Barcode sejajar semua device */}
+        <div className="flex flex-row justify-center items-start gap-4 mb-6 w-full max-w-xs mx-auto">
           {/* Gambar Barcode */}
-          <div className="bg-white rounded-xl shadow-md p-3 border border-yellow-100 text-center">
+          <div className="flex-shrink-0 bg-white rounded-xl shadow-md p-2 border border-yellow-100 text-center w-[90px]">
             <Image
               src="/assets/frame.png"
               alt="Barcode Lokasi"
-              width={120}
-              height={120}
+              width={70}
+              height={70}
               className="rounded-md mx-auto"
             />
-            <p className="text-[10px] text-gray-500 mt-2">Scan untuk lokasi</p>
+            <p className="text-[10px] text-gray-500 mt-1">Scan untuk lokasi</p>
           </div>
 
           {/* Teks Lokasi */}
-          <div className="text-sm text-gray-800 leading-relaxed md:text-left text-center">
-            <p className="font-medium text-yellow-900 text-sm md:text-base mb-1">
-              Lokasi
-            </p>
+          <div className="text-xs text-gray-800 leading-relaxed text-left">
+            <p className="font-medium text-yellow-900 text-sm mb-1">Lokasi</p>
             <p>
-              Bertempat di,
-              <br />
-              <span className="font-semibold text-yellow-900 text-justify">
+              Bertempat di, <br />
+              <span className="font-semibold text-yellow-900">
                 Didagoan Kopi
               </span>
               <br />
@@ -83,6 +72,7 @@ export default function EventDetails() {
           </div>
         </div>
 
+        {/* Tombol Lokasi */}
         <motion.a
           href="https://maps.app.goo.gl/g2wfdFfVE9LhyfFw8?g_st=aw"
           target="_blank"
