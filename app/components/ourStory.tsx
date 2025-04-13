@@ -39,18 +39,19 @@ export default function OurStoryPage() {
     <section className="relative w-full min-h-screen overflow-hidden">
       {/* Background image */}
       <div
-        className="absolute inset-0 bg-no-repeat bg-contain bg-right-bottom"
+        className="absolute inset-0 bg-no-repeat bg-contain bg-right-bottom z-0"
         style={{
           backgroundImage: "url('/assets/history.png')",
         }}
       />
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-orange-50 via-gray-300 to-transparent" />
-      <div className="absolute inset-0 " />
+      {/* Extended Gradient Overlay to push image down */}
+      <div className="absolute inset-0 h-[100%] bg-gradient-to-b from-orange-50/80 via-white/60 to-transparent z-0" />
 
       {/* Timeline content */}
-      <div className="relative z-10">
+      <div className="relative z-10 pb-64">
+        {' '}
+        {/* Tambah padding bawah */}
         <Timeline data={timelineData} />
       </div>
     </section>

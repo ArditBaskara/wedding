@@ -27,7 +27,7 @@ export default function HappyEndingSection() {
             Laras & Indra
           </h1>
           <p className="text-sm sm:text-base text-gray-700">
-            Atas kehadiran dan doa restunya kami ucapkan terima kasih.
+            Atas kehadiran dan doa restunya <br /> kami ucapkan terima kasih.
             <br />
             Wassalamu'alaikum Wr. Wb.
           </p>

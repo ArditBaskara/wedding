@@ -44,16 +44,62 @@ const fallbackCopyTextToClipboard = (text: string) => {
   document.body.removeChild(textArea);
 };
 
+const AccountSection = ({
+  bankLogo,
+  bankName,
+  accountNumber,
+  phoneNumber,
+}: {
+  bankLogo: string;
+  bankName: string;
+  accountNumber: string;
+  phoneNumber: string;
+}) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.6 }}
+    viewport={{ once: true }}
+    className="space-y-2"
+  >
+    <div className="flex justify-center">
+      <Image src={bankLogo} alt={`${bankName} Logo`} width={120} height={40} />
+    </div>
+    <p className="text-sm text-gray-800 font-serif">
+      Silahkan transfer ke rekening <br /> a.n {bankName}
+    </p>
+    <p className="font-semibold text-lg tracking-wide font-serif">
+      {accountNumber}
+    </p>
+    <div className="flex gap-2 justify-center">
+      <Button
+        variant="secondary"
+        onClick={() => copyToClipboard(accountNumber)}
+        icon={<Copy size={16} />}
+      >
+        Salin No. Rek
+      </Button>
+      <Button
+        variant="secondary"
+        onClick={() => window.open(`https://wa.me/${phoneNumber}`, '_blank')}
+        icon={<Send size={16} />}
+      >
+        Konfirmasi via WA
+      </Button>
+    </div>
+  </motion.div>
+);
+
 export default function GiftSection() {
   return (
-    <section className="relative w-full min-h-screen overflow-hidden">
-      <div
-        className="absolute inset-0 bg-cover bg-center z-0"
-        style={{ backgroundImage: "url('/assets/children.png')" }}
-      />
-      <div className="absolute inset-0 z-0" />
-
-      <div className="relative z-10 max-w-2xl mx-auto px-4 py-16 text-center space-y-8">
+    <section
+      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-cover bg-center"
+      style={{ backgroundImage: "url('/assets/children.png')" }}
+    >
+      {/* Menghapus background gelap yang mengganggu */}
+      <div className="relative z-10 max-w-2xl mx-auto px-4 py-24 text-center space-y-8">
+        {' '}
+        {/* Penambahan py-24 untuk jarak lebih lebar di atas */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -69,95 +115,21 @@ export default function GiftSection() {
             memberi kado secara cashless.
           </p>
         </motion.div>
-
-        {/* BCA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          viewport={{ once: true }}
-          className="space-y-2"
-        >
-          <div className="flex justify-center">
-            <Image
-              src="/assets/bca.png"
-              alt="BCA Logo"
-              width={120}
-              height={40}
-            />
-          </div>
-          <p className="text-sm text-gray-800 font-serif">
-            Silahkan transfer ke rekening a.n Anisa Larasati Supriyati
-          </p>
-          <p className="font-semibold text-lg tracking-wide font-serif">
-            8320596352
-          </p>
-          <div className="flex gap-2 justify-center">
-            <Button
-              variant="secondary"
-              onClick={() => copyToClipboard('8320596352')}
-              icon={<Copy size={16} />}
-            >
-              Salin No. Rek
-            </Button>
-            <Button
-              variant="secondary"
-              className=""
-              onClick={() =>
-                window.open('https://wa.me/6283821172388', '_blank')
-              }
-              icon={<Send size={16} />}
-            >
-              Konfirmasi via WA
-            </Button>
-          </div>
-        </motion.div>
-
-        {/* Mandiri */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="space-y-2 pt-6"
-        >
-          <div className="flex justify-center">
-            <Image
-              src="/assets/madniri.png"
-              alt="Mandiri Logo"
-              width={140}
-              height={40}
-            />
-          </div>
-          <p className="text-sm text-gray-800 pt-4 font-serif">
-            Silahkan transfer ke rekening a.n Indra Kurniawan
-          </p>
-          <p className="font-semibold text-lg tracking-wide font-serif">
-            1320029683118
-          </p>
-          <div className="flex gap-2 justify-center">
-            <Button
-              variant="secondary"
-              className=""
-              onClick={() => copyToClipboard('1320029683118')}
-              icon={<Copy size={16} />}
-            >
-              Salin No. Rek
-            </Button>
-            <Button
-              variant="secondary"
-              className=""
-              onClick={() =>
-                window.open('https://wa.me/6283821172388', '_blank')
-              }
-              icon={<Send size={16} />}
-            >
-              Konfirmasi via WA
-            </Button>
-          </div>
-        </motion.div>
-
-        {/* Alamat */}
+        {/* BCA Section */}
+        <AccountSection
+          bankLogo="/assets/bca.png"
+          bankName="Anisa Larasati Supriyati"
+          accountNumber="8320596352"
+          phoneNumber="6283821172388"
+        />
+        {/* Mandiri Section */}
+        <AccountSection
+          bankLogo="/assets/madniri.png"
+          bankName="Indra Kurniawan"
+          accountNumber="1320029683118"
+          phoneNumber="6283821172388"
+        />
+        {/* Address Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -179,7 +151,6 @@ export default function GiftSection() {
           <div className="flex justify-center">
             <Button
               variant="primary"
-              className="items-center justify-center"
               onClick={() =>
                 copyToClipboard(
                   'Jalan Sarikaso VI No.12, RT 02 RW 01, Kelurahan Sarijadi, Kecamatan Sukasari, Jawa Barat 40151'

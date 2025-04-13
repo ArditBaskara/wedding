@@ -15,19 +15,26 @@ export const CardStack = ({
   items,
   offset,
   scaleFactor,
+  className,
 }: {
   items: Card[];
   offset?: number;
   scaleFactor?: number;
+  className?: string;
 }) => {
-  const CARD_OFFSET = offset || 10;
-  const SCALE_FACTOR = scaleFactor || 0.06;
+  const CARD_OFFSET = offset || 8;
+  const SCALE_FACTOR = scaleFactor || 0.05;
   const [cards, setCards] = useState<Card[]>(items);
 
   useEffect(() => {
     startFlipping();
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    // Update cards when items change
+    setCards(items);
+  }, [items]);
 
   const startFlipping = () => {
     interval = setInterval(() => {
@@ -40,14 +47,19 @@ export const CardStack = ({
   };
 
   return (
-    <div className="relative w-full max-w-xs md:max-w-md aspect-[3/2] mx-auto">
+    <div
+      className={`relative w-full mx-auto ${className || ''}`}
+      style={{ minHeight: '150px' }}
+    >
       {cards.map((card, index) => {
         return (
           <motion.div
             key={card.id}
-            className="absolute bg-white dark:bg-black w-full h-full rounded-3xl p-4 shadow-xl border border-neutral-200 dark:border-white/[0.1] shadow-black/[0.1] dark:shadow-white/[0.05] flex flex-col justify-between overflow-hidden"
+            className="absolute bg-white w-full rounded-lg p-4 shadow-md border border-neutral-100 flex flex-col justify-between"
             style={{
-              transformOrigin: 'top center',
+              transformOrigin: 'center',
+              minHeight: '120px',
+              maxWidth: '280px',
             }}
             animate={{
               top: index * -CARD_OFFSET,
@@ -55,16 +67,16 @@ export const CardStack = ({
               zIndex: cards.length - index,
             }}
           >
-            <div className="overflow-y-auto max-h-[60%] pr-2 text-sm md:text-base font-normal text-neutral-700 dark:text-neutral-200 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-neutral-700">
-              {card.content}
-            </div>
-            <div className="pt-2">
-              <p className="text-sm md:text-base text-neutral-500 font-medium dark:text-white">
+            <div className="flex flex-col h-full">
+              {/* Message content area */}
+              <div className="flex-grow overflow-y-auto mb-2 pr-1 text-sm text-gray-700">
+                {card.content}
+              </div>
+
+              {/* Footer with sender info */}
+              <div className="text-right text-sm font-medium text-gray-600">
                 {card.name}
-              </p>
-              <p className="text-xs md:text-sm text-neutral-400 font-normal dark:text-neutral-200">
-                {card.designation}
-              </p>
+              </div>
             </div>
           </motion.div>
         );

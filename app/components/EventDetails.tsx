@@ -15,9 +15,9 @@ export default function EventDetails() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="text-center max-w-2xl w-full"
+        className="text-center max-w-3xl w-full px-4 md:px-10"
       >
-        <p className="text-sm md:text-base text-gray-800 mb-6 leading-relaxed">
+        <p className="text-base md:text-lg text-gray-800 mb-6 leading-relaxed">
           Dengan segala kerendahan hati kami berharap kehadiran
           Bapak/Ibu/Saudara/i dalam acara pernikahan anak kami yang akan
           diselenggarakan pada:
@@ -31,7 +31,7 @@ export default function EventDetails() {
         </div>
 
         {/* Jadwal */}
-        <div className="flex justify-center text-xs md:text-sm font-medium text-gray-700 gap-6 mb-8">
+        <div className="flex justify-center text-sm md:text-base font-medium text-gray-700 gap-10 mb-8">
           <div className="leading-snug">
             <p className="font-bold text-yellow-900">Akad Nikah</p>
             <p className="font-serif font-normal">08.00 WIB</p>
@@ -42,9 +42,9 @@ export default function EventDetails() {
           </div>
         </div>
 
-        {/* Lokasi & Barcode sejajar semua device */}
-        <div className="flex flex-row justify-center items-start gap-4 mb-6 w-full max-w-xs mx-auto">
-          {/* Gambar Barcode */}
+        {/* Lokasi & Barcode */}
+        <div className="flex justify-center items-start gap-6 mb-6 w-full max-w-2xl mx-auto flex-wrap sm:flex-nowrap">
+          {/* Barcode */}
           <div className="flex-shrink-0 bg-white rounded-xl shadow-md p-2 border border-yellow-100 text-center w-[90px]">
             <Image
               src="/assets/frame.png"
@@ -56,17 +56,16 @@ export default function EventDetails() {
             <p className="text-[10px] text-gray-500 mt-1">Scan untuk lokasi</p>
           </div>
 
-          {/* Teks Lokasi */}
-          <div className="text-xs text-gray-800 leading-relaxed text-left">
-            <p className="font-medium text-yellow-900 text-sm mb-1">Lokasi</p>
+          {/* Alamat */}
+          <div className="flex-1 text-sm md:text-base text-gray-800 leading-relaxed text-left">
+            <p className="font-medium text-yellow-900 text-base mb-1">Lokasi</p>
             <p>
               Bertempat di, <br />
               <span className="font-semibold text-yellow-900">
                 Didagoan Kopi
               </span>
               <br />
-              Jl. Bukit Pakar Utara No.27, Ciburial, Kec. Cimenyan,
-              <br />
+              Jl. Bukit Pakar Utara No.27, Ciburial, Kec. Cimenyan, <br />
               Kabupaten Bandung, Jawa Barat 40135
             </p>
           </div>
@@ -84,7 +83,7 @@ export default function EventDetails() {
             duration: 2,
             ease: 'easeInOut',
           }}
-          className="inline-block mt-2 px-5 py-2 bg-yellow-700 hover:bg-yellow-800 text-white text-sm rounded-full shadow-lg"
+          className="inline-block mt-2 px-6 py-2 bg-yellow-700 hover:bg-yellow-800 text-white text-sm rounded-full shadow-lg"
         >
           Lihat Lokasi
         </motion.a>

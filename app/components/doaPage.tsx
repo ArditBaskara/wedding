@@ -64,54 +64,95 @@ export default function DoaPage() {
 
   return (
     <section
-      className="relative min-h-screen w-full bg-cover bg-center bg-no-repeat flex justify-center items-center px-24"
-      style={{ backgroundImage: "url('/assets/children.png')" }}
+      className="relative w-full bg-cover bg-center bg-no-repeat flex justify-center"
+      style={{
+        backgroundImage: "url('/assets/children.png')",
+        backgroundPosition: 'center',
+        backgroundSize: 'cover',
+        height: '100%', // Adjust height to not be too high
+      }}
     >
-      <div className="w-full max-w-4xl mx-auto">
-        <h1 className="text-4xl font-great text-yellow-900 text-center mb-6">
-          Ucapan & Doa
-        </h1>
+      <div className="w-full max-w-sm flex flex-col">
+        <div className="flex-1 px-8 py-20">
+          {/* Page title */}
+          <h1 className="text-3xl font-great text-brown-600 text-center mb-8">
+            Ucapan &amp; Doa
+          </h1>
 
-        <div className="space-y-2">
-          <Textarea
-            placeholder="Nama"
-            value={name}
-            className="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-base"
-            onChange={(e) => setName(e.target.value)}
-          />
-          <Textarea
-            placeholder="Tulis ucapan dan doa..."
-            value={message}
-            className="w-full bg-gray-50 border border-gray-300 rounded-lg px-4 py-3 text-base min-h-[120px]"
-            onChange={(e) => setMessage(e.target.value)}
-          />
+          {/* Form section */}
+          <div className="mb-10">
+            <h2 className="text-xl font-medium text-brown-700 mb-4">
+              Kirim Ucapan
+            </h2>
 
-          <Button
-            onClick={handleSubmit}
-            disabled={loading}
-            className="w-full mt-2"
-          >
-            {loading ? 'Mengirim...' : 'Kirim Ucapan'}
-          </Button>
-        </div>
+            <div className="space-y-4">
+              <Textarea
+                placeholder="Nama"
+                value={name}
+                className="w-full bg-white border border-yellow-300 focus:border-yellow-500 focus:ring-0 rounded-md px-4 py-3 text-sm"
+                onChange={(e) => setName(e.target.value)}
+              />
 
-        <div className="pt-8">
-          {messages.length > 0 ? (
-            <CardStack
-              items={messages.map((msg, index) => ({
-                id: index,
-                name: msg.name || 'Anonim',
-                designation: '',
-                content: msg.message || '',
-              }))}
-            />
-          ) : (
-            <p className="text-sm text-muted-foreground text-center">
-              Belum ada ucapan atau doa.
-            </p>
-          )}
+              <Textarea
+                placeholder="Tulis ucapan dan doa..."
+                value={message}
+                className="w-full bg-white border border-yellow-300 focus:border-yellow-500 focus:ring-0 rounded-md px-4 py-3 text-sm min-h-[100px]"
+                onChange={(e) => setMessage(e.target.value)}
+              />
+
+              <Button
+                onClick={handleSubmit}
+                disabled={loading}
+                className="w-full bg-amber-700 hover:bg-amber-800 text-white py-3 rounded-md text-sm font-medium"
+              >
+                {loading ? 'Mengirim...' : 'Kirim Ucapan'}
+              </Button>
+            </div>
+          </div>
+
+          {/* Messages section */}
+          <div>
+            <h2 className="text-xl font-medium text-brown-700 mb-4">
+              Ucapan Terbaru
+            </h2>
+
+            {messages.length > 0 ? (
+              <div className="mb-8">
+                <CustomMessageCard messages={messages} />
+              </div>
+            ) : (
+              <p className="text-center text-sm text-gray-500 mt-4 mb-8">
+                Belum ada ucapan atau doa.
+              </p>
+            )}
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function CustomMessageCard({ messages }: { messages: Message[] }) {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % messages.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [messages.length]);
+
+  const activeMessage = messages[activeIndex];
+
+  return (
+    <div className="bg-white rounded-lg shadow-md p-4 min-h-[120px] flex flex-col justify-between">
+      <div className="mb-4 text-sm text-gray-700 overflow-y-auto max-h-[150px] pr-2">
+        {activeMessage.message}
+      </div>
+      <div className="text-right text-sm font-medium text-gray-600">
+        {activeMessage.name}
+      </div>
+    </div>
   );
 }

@@ -37,11 +37,9 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         <div ref={ref} className="relative space-y-14 pb-8">
           {data.map((item, index) => (
             <div key={index} className="relative pl-10 md:pl-12">
-              {/* Dot
-              <div className="absolute left-0 top-2.5 h-4 w-4 rounded-full bg-orange-300 border border-neutral-400 dark:bg-neutral-700 dark:border-neutral-600" /> */}
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 shadow-md ring-1 ring-white/30">
-                {/* Title */}
-                <h3 className="text-xl md:text-2xl font-semibold text-yellow-800 dark:text-neutral-300 mb-2">
+              {/* Card */}
+              <div className="bg-white/70 backdrop-blur-md rounded-2xl p-5 shadow-lg ring-1 ring-white/30">
+                <h3 className="text-xl md:text-2xl font-semibold text-yellow-800 dark:text-neutral-300 mb-2 drop-shadow">
                   {item.title}
                 </h3>
                 <motion.div
@@ -49,7 +47,7 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, ease: 'easeOut' }}
                   viewport={{ once: true }}
-                  className="text-xs text-justify sm:text-lg text-slate-950 drop-shadow-md"
+                  className="text-xs text-justify sm:text-lg text-slate-950 drop-shadow-sm"
                 >
                   {item.content}
                 </motion.div>
