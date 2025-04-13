@@ -23,33 +23,64 @@ export default function EventDetails() {
           diselenggarakan pada:
         </p>
 
-        <p className="font-medium text-yellow-900 text-sm md:text-base mb-1">
+        {/* <p className="font-medium text-yellow-900 text-sm md:text-base mb-1">
           Akad Nikah dan Syukuran
         </p>
         <p className="text-sm text-gray-800 mb-1">Sabtu, 26 April 2025</p>
-        <p className="text-sm text-gray-800 mb-4">Pukul : 08:00 - 12:00 WIB</p>
+        <p className="text-sm text-gray-800 mb-4">Pukul : 08:00 - 12:00 WIB</p> */}
+        {/* 
+        <p className="text-xs md:text-sm text-gray-700 mb-2 leading-tight">
+          Yang akan dilaksanakan pada:
+        </p> */}
 
-        <p className="font-medium text-yellow-900 text-sm md:text-base mb-1">
-          Lokasi
-        </p>
-        <p className="text-sm text-gray-800 mb-4 leading-snug">
-          Bertempat di,
-          <br />
-          Didagoan Kopi
-          <br />
-          Jl. Bukit Pakar Utara No.27, Ciburial, Kec. Cimenyan,
-          <br />
-          Kabupaten Bandung, Jawa Barat 40135
-        </p>
+        {/* Tanggal */}
+        <div className="flex items-center justify-center gap-3 text-gray-800 font-serif mb-4">
+          <div className="text-sm md:text-base text-gray-600">APRIL</div>
+          <div className="text-4xl font-bold leading-none">| 26 |</div>
+          <div className="text-sm md:text-base text-gray-600">2025</div>
+        </div>
 
-        <div className="flex justify-center mb-4">
-          <Image
-            src="/assets/frame.png" // Ganti path sesuai nama file barcode kamu
-            alt="Barcode Lokasi"
-            width={80}
-            height={40}
-            className="rounded-md shadow"
-          />
+        {/* Jadwal */}
+        <div className="flex justify-around text-xs md:text-sm font-medium text-gray-700 gap-4 mb-4">
+          <div className="leading-snug">
+            <p className="font-bold text-yellow-900">Akad Nikah</p>
+            <p className="font-serif font-normal">08.00 WIB</p>
+          </div>
+          <div className="leading-snug">
+            <p className="font-bold text-yellow-900">Syukuran</p>
+            <p className="font-serif font-normal">09.30 WIB</p>
+          </div>
+        </div>
+        <div className="flex flex-col md:flex-row justify-center items-start gap-6 mb-6">
+          {/* Gambar Barcode */}
+          <div className="bg-white rounded-xl shadow-md p-3 border border-yellow-100 text-center">
+            <Image
+              src="/assets/frame.png"
+              alt="Barcode Lokasi"
+              width={120}
+              height={120}
+              className="rounded-md mx-auto"
+            />
+            <p className="text-[10px] text-gray-500 mt-2">Scan untuk lokasi</p>
+          </div>
+
+          {/* Teks Lokasi */}
+          <div className="text-sm text-gray-800 leading-relaxed md:text-left text-center">
+            <p className="font-medium text-yellow-900 text-sm md:text-base mb-1">
+              Lokasi
+            </p>
+            <p>
+              Bertempat di,
+              <br />
+              <span className="font-semibold text-yellow-900 text-justify">
+                Didagoan Kopi
+              </span>
+              <br />
+              Jl. Bukit Pakar Utara No.27, Ciburial, Kec. Cimenyan,
+              <br />
+              Kabupaten Bandung, Jawa Barat 40135
+            </p>
+          </div>
         </div>
 
         <motion.a

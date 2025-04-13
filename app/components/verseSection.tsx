@@ -10,7 +10,7 @@ export default function VerseSection() {
       {/* Background Khusus Halaman Ini */}
       <div className="absolute inset-0">
         <Image
-          src="/assets/children.png" // <- Ganti dengan background yang kamu mau
+          src="/assets/children.png"
           alt="Background Verse Section"
           fill
           className="object-fill"
@@ -26,11 +26,11 @@ export default function VerseSection() {
         transition={{ duration: 1 }}
         className="relative z-10 flex flex-col justify-center items-center h-full px-4 text-center"
       >
-        <h1 className="text-4xl md:text-5xl font-great mb-6 text-yellow-900">
+        <h1 className="text-4xl font-extrabold md:text-5xl font-great mb-6 text-yellow-900">
           Ar-Rum 21
         </h1>
 
-        <p className="text-xl md:text-2xl leading-loose font-serif text-yellow-900 mb-6">
+        <p className="text-xl font-extrabold md:text-2xl leading-loose font-serif text-yellow-900 mb-6">
           وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا
           لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ
           إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ

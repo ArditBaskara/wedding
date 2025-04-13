@@ -32,16 +32,6 @@ const timelineData = [
       </p>
     ),
   },
-  {
-    title: 'Pernikahan',
-    content: (
-      <p>
-        Kami percaya bahwa pernikahan adalah awal dari kehidupan baru yang penuh
-        berkah dan cinta. Kami dengan penuh suka cita mengundang Anda untuk
-        menjadi bagian dari hari bahagia kami.
-      </p>
-    ),
-  },
 ];
 
 export default function OurStoryPage() {

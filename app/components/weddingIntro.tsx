@@ -21,7 +21,6 @@ export default function WeddingIntro() {
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
 
       setTimeLeft(`${days} hari ${hours} jam ${minutes} menit`);
     };
@@ -32,8 +31,8 @@ export default function WeddingIntro() {
   }, []);
 
   return (
-    <section className="w-screen min-h-screen relative overflow-hidden">
-      {/* Gambar Background (Full Screen, object-cover) */}
+    <section className="relative w-screen min-h-screen overflow-hidden">
+      {/* Background Image */}
       <motion.div
         initial={{ scale: 1.1 }}
         animate={{ scale: 1 }}
@@ -44,26 +43,19 @@ export default function WeddingIntro() {
           src="/assets/open.png"
           alt="Background"
           fill
-          className="object-contain "
+          className="object-cover"
           priority
         />
-        {/* Overlay gelap tipis */}
-        <div className="absolute inset-0" />
+        <div className="absolute inset-0 bg-black/30" />
       </motion.div>
 
-      {/* Konten Utama */}
-      <div className="absolute inset-0 z-10 flex items-center justify-center mt-44">
-        <div className="text-center text-white px-4 py-6 max-w-md w-72 backdrop-blur-sm rounded-xl bg-white/10 border border-white/10 shadow-1xl">
-          <p className="text-lg text-gray-50 font-serif">The Wedding of</p>
-          <h2 className="text-4xl font-great text-gray-50 font-bold mt-2">
-            Laras & Indra
-          </h2>
-          <p className="text-lg text-gray-50 font-serif">
-            Sabtu, 26 April 2026
-          </p>
-          <p className="font-bold font-serif text-xl mt-1 text-gray-50">
-            {timeLeft}
-          </p>
+      {/* Content */}
+      <div className="relative z-10 flex items-center justify-center min-h-screen">
+        <div className="text-center text-white px-6 py-8 max-w-md w-[90%] backdrop-blur-sm rounded-xl bg-white/10 border border-white/10 shadow-2xl">
+          <p className="text-lg font-serif">The Wedding of</p>
+          <h2 className="text-4xl font-great font-bold mt-2">Laras & Indra</h2>
+          <p className="text-lg font-serif">Sabtu, 26 April 2026</p>
+          <p className="font-bold font-serif text-xl mt-1">{timeLeft}</p>
         </div>
       </div>
     </section>

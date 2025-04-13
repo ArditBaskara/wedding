@@ -53,10 +53,7 @@ export default function InvitePage({
   return (
     <>
       <audio ref={audioRef} loop className="hidden">
-        <source
-          src="/music/Give Me a Future - Ryan Freeman.mp3"
-          type="audio/mpeg"
-        />
+        <source src="/music/videoplayback.mp3" type="audio/mpeg" />
       </audio>
 
       {!opened ? (
