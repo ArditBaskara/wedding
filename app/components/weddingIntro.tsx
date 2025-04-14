@@ -50,8 +50,8 @@ export default function WeddingIntro() {
       </motion.div>
 
       {/* Content */}
-      <div className="relative z-10 flex items-start mt-80 justify-center h-full px-7">
-        <div className="text-center text-white px-6 py-5 w-full max-w-[90%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[500px] xl:max-w-[500px] backdrop-blur-sm rounded-xl bg-white/10 border border-white/10 shadow-4xl">
+      <div className="relative z-10 flex items-start mt-80 justify-center -w-20 h-full px-7">
+        <div className="text-center text-white px-8 py-5 w-full max-w-[90%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[500px] xl:max-w-[500px] backdrop-blur-sm rounded-xl bg-white/10 border border-white/10 shadow-2xl">
           <p className="text-base sm:text-lg font-serif">The Wedding of</p>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-great font-bold mt-2">
             Laras
@@ -61,7 +61,7 @@ export default function WeddingIntro() {
           <p className="text-base sm:text-lg font-serif">
             Sabtu, 26 April 2026
           </p>
-          <p className="font-bold font-serif text-lg sm:text-xl mt-2">
+          <p className="font-extrabold font-serif text-lg sm:text-lg mt-2 whitespace-nowrap">
             {timeLeft}
           </p>
         </div>
