@@ -14,10 +14,10 @@ export default function WeddingInvitationSection() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="bg-white/90 backdrop-blur-md shadow-xl rounded-2xl max-w-4xl w-full px-6 md:px-12 py-10 md:py-14 text-center space-y-10"
+        className="bg-white/90 items-center justify-center backdrop-blur-md shadow-xl rounded-2xl max-w-md sm:max-w-lg md:max-w-xl w-full px-6 md:px-12 py-10 md:py-14 text-center space-y-5"
       >
-        <h2 className="text-3xl md:text-5xl font-great text-yellow-900">
-          AssalamualaikumWrWb
+        <h2 className="text-3xl md:text-3xl font-great font-bold text-yellow-900">
+          AssalamualaikumWr.Wb
         </h2>
 
         <p className="text-base md:text-lg text-gray-800 font-serif leading-relaxed">

@@ -42,17 +42,17 @@ export default function RSVPPage() {
   };
 
   return (
-    <section className="relative w-screen h-screen overflow-hidden">
+    <section className="relative  h-screen overflow-hidden">
       {/* Background image full screen */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-inherit -mx-20 bg-no-repeat"
         style={{ backgroundImage: "url('/assets/children.png')" }}
       />
 
-      {/* RSVP form */}
-      <div className="relative z-10 flex items-center justify-center w-full h-full px-4 py-12">
+      {/* RSVP form container */}
+      <div className="relative z-10 flex items-center justify-center w-full h-full px-14 py-12">
         <motion.div
-          className="bg-white bg-opacity-90 rounded-xl shadow-xl p-6 w-full max-w-md space-y-6 text-center backdrop-blur-md"
+          className="bg-white bg-opacity-90 rounded-xl shadow-xl p-6 w-full max-w-md sm:max-w-lg lg:max-w-md xl:max-w-lg space-y-6 text-center backdrop-blur-md"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}

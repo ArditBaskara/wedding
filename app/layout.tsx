@@ -60,7 +60,7 @@ export default function RootLayout({
         }}
       >
         <Toaster position="top-center" />
-        <div className="mx-auto max-w-sm w-full min-h-screen relative shadow-lg rounded-xl overflow-hidden">
+        <div className="mx-auto max-w-sm min-h-screen relative rounded-xl overflow-hidden">
           <div className="relative z-10">{children}</div>
         </div>
       </body>

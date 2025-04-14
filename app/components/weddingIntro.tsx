@@ -31,7 +31,7 @@ export default function WeddingIntro() {
   }, []);
 
   return (
-    <section className="relative w-screen min-h-screen overflow-hidden">
+    <section className="relative min-w-fit h-screen overflow-hidden px-10">
       {/* Background Image */}
       <motion.div
         initial={{ scale: 1.1 }}
@@ -43,19 +43,27 @@ export default function WeddingIntro() {
           src="/assets/open.png"
           alt="Background"
           fill
-          className="object-cover"
           priority
+          style={{ objectFit: 'cover' }}
         />
         <div className="absolute inset-0 bg-black/30" />
       </motion.div>
 
       {/* Content */}
-      <div className="relative z-10 flex items-center justify-center min-h-screen">
-        <div className="text-center text-white px-6 py-8 max-w-md w-[90%] backdrop-blur-sm rounded-xl bg-white/10 border border-white/10 shadow-2xl">
-          <p className="text-lg font-serif">The Wedding of</p>
-          <h2 className="text-4xl font-great font-bold mt-2">Laras & Indra</h2>
-          <p className="text-lg font-serif">Sabtu, 26 April 2026</p>
-          <p className="font-bold font-serif text-xl mt-1">{timeLeft}</p>
+      <div className="relative z-10 flex items-start mt-80 justify-center h-full px-7">
+        <div className="text-center text-white px-6 py-5 w-full max-w-[90%] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[500px] xl:max-w-[500px] backdrop-blur-sm rounded-xl bg-white/10 border border-white/10 shadow-4xl">
+          <p className="text-base sm:text-lg font-serif">The Wedding of</p>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-great font-bold mt-2">
+            Laras
+            <br />&<br />
+            Indra
+          </h2>
+          <p className="text-base sm:text-lg font-serif">
+            Sabtu, 26 April 2026
+          </p>
+          <p className="font-bold font-serif text-lg sm:text-xl mt-2">
+            {timeLeft}
+          </p>
         </div>
       </div>
     </section>
